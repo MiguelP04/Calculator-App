@@ -1,0 +1,15 @@
+.calculator-screen--container{
+    margin-top: 40px;
+    max-height: 60px;
+    width: calc(100% - 40px);
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+}
+
+.calculator-screen--text{
+    margin: 0;
+    text-align: end;
+    font-size: 36px;
+    color: white;
+}
