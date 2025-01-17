@@ -1,7 +1,8 @@
+import './calculator-buttons.css'
 
 function CalculatorButtons({ children }) {
     return (
-        <ul>
+        <ul className="calculator-buttons--container">
             {children}
         </ul>            
     )

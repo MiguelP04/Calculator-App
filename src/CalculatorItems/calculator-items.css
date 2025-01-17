@@ -1,0 +1,23 @@
+.calculator-button--container{
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-button{
+    height: 46px;
+    width: 46px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    box-shadow: -6px -6px 12px 0.1px #525863;
+    color: white;
+    cursor: pointer;
+    margin: 6px;
+}
+
+.calculator-equal{
+    grid-column: 3 / 5;
+    grid-row: 5;
+}

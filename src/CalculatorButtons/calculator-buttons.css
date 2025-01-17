@@ -1,0 +1,13 @@
+.calculator-buttons--container{
+    padding: 0;
+    background-color: transparent;
+    height: 70%;
+    width: calc(100% - 30px);
+    position: absolute;
+    bottom: 0;
+    list-style-type: none;  
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(5, 1fr); 
+    gap: 16px;
+}

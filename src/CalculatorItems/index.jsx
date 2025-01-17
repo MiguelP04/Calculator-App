@@ -1,8 +1,9 @@
+import './calculator-items.css'
 
-function CalculatorItems() {
+function CalculatorItems({ calculatorKey, className }) {
     return (
-        <li>
-            <button></button>
+        <li className={'calculator-button--container' + " " +  className}>
+            <button className='calculator-button'>{calculatorKey}</button>
         </li>
     )
 }
