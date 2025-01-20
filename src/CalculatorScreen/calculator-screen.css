@@ -5,6 +5,7 @@
     background-color: transparent;
     position: absolute;
     top: 0;
+    overflow: hidden;
 }
 
 .calculator-screen--text{

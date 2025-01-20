@@ -6,31 +6,60 @@ import  React  from 'react'
 import './App.css'
 
 function App() {
-  const [showNumbers, setShowNumbers] = React.useState(0)
-  return (
+  const [showNumbers, setShowNumbers] = React.useState(['0'])
+
+  function separarNumerosYSimbolos(array) {
+    let resultado = [];
+
+    array.forEach(item => {
+        // Usamos una expresión regular para separar números y operadores
+        let partes = item.match(/(\d+|[+\-*/])/g);
+        if (partes) {
+            resultado.push(...partes); // Agregamos todas las partes al array resultado
+        }
+    });
+
+    return resultado;
+}
+  const resultNumbers = () => {
+    const arraySeparado = separarNumerosYSimbolos(showNumbers)
+    const expression = arraySeparado.join(' ')
+    if(arraySeparado.length >= 3){
+      return eval(expression)
+    } else {
+      return showNumbers
+    }
+
+  }
+
+  const deleteAllNumbers = () => {
+    const deleteAllNumbers = ['0']
+    return deleteAllNumbers
+  }
+  return (  
     <Calculator>   
       <CalculatorScreen showNumbers={showNumbers}/>
 
       <CalculatorButtons >
-        <CalculatorItems calculatorKey="AC" className="calculator-ac"/>
+        <CalculatorItems deleteAllNumbers={deleteAllNumbers} calculatorKey="AC" className="calculator-ac"/>
         <CalculatorItems calculatorKey="DE"className="calculator-de" />
-        <CalculatorItems calculatorKey="." className="calculator-dot"/>
-        <CalculatorItems calculatorKey="/" className="calculator-split"/>
-        <CalculatorItems calculatorKey="7" className="calculator-seven"/>
-        <CalculatorItems calculatorKey="8" className="calculator-eight"/>
-        <CalculatorItems calculatorKey="9" className="calculator-nine"/>
-        <CalculatorItems calculatorKey="*" className="calculator-multiply"/>
-        <CalculatorItems calculatorKey="4" className="calculator-four"/>
-        <CalculatorItems calculatorKey="5" className="calculator-five"/>
-        <CalculatorItems calculatorKey="6" className="calculator-six"/>
-        <CalculatorItems calculatorKey="-" className="calculator-substract"/>
-        <CalculatorItems calculatorKey="1" className="calculator-one"/>
-        <CalculatorItems calculatorKey="2" className="calculator-two" />
-        <CalculatorItems calculatorKey="3" className="calculator-three" />
-        <CalculatorItems calculatorKey="+" className="calculator-sum"/>
-        <CalculatorItems calculatorKey="00" className="calculator-double--cero"/>
-        <CalculatorItems calculatorKey="0" className="calculator-cero"/>
-        <CalculatorItems calculatorKey="=" className="calculator-equal" />
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="." className="calculator-dot"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="/" className="calculator-split"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="7" className="calculator-seven"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="8" className="calculator-eight"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="9" className="calculator-nine"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="*" className="calculator-multiply"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="4" className="calculator-four"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="5" className="calculator-five"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="6" className="calculator-six"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="-" className="calculator-substract"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="1" className="calculator-one"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="2" className="calculator-two" />
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="3" className="calculator-three" />
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="+" className="calculator-sum"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="00" className="calculator-double--cero"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} calculatorKey="0" className="calculator-cero"/>
+        <CalculatorItems showNumbers={showNumbers} setShowNumbers={setShowNumbers} resultNumbers={resultNumbers} calculatorKey="=" className="calculator-equal" />
       </CalculatorButtons>
       
     </Calculator>
